@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstraksi, Pewarisan, dan
+        Polymorphism</title>
+</head>
+
+<body>
+    <script>
+        // Abstraksi
+        function Jumlah(jmlh) {
+            var jmlh = jmlh;
+            var totalBiaya = function () {
+                return jmlh * 14000;
+            }
+
+            this.tampilBiaya = function () {
+                return totalBiaya();
+            }
+        }
+
+        const Penumpang = new Jumlah(4);
+        console.log(Penumpang.tampilBiaya())
+        console.log('-------------------------------')
+        // -----------------------------------------
+
+
+        // Inheritance 
+        class Vehicle {
+            constructor(licencePlate, manufacture) {
+                this.licencePlate = licencePlate;
+                this.manufacture = manufacture;
+            }
+
+            info() {
+                console.log(`Nomor Kendaraan: ${this.licencePlate}`);
+                console.log(`Manufacture: ${this.manufacture}`);
+            }
+
+            parking() {
+                console.log(`Kendaraan ${this.licencePlate} parkir!`);
+            }
+        }
+
+        class Car extends Vehicle {
+            constructor(licencePlate, manufacture, wheels) {
+                super(licencePlate, manufacture)
+                this.wheels = wheels;
+            }
+
+            info() {
+                // Overriding method
+                super.info();
+                console.log(`Jumlah roda: ${this.wheels}`)
+            }
+
+            droveOff() {
+                console.log(`Kendaraan ${this.licencePlate} melahu!`);
+            }
+
+            openDoor() {
+                console.log(`Membuka pintu!`);
+            }
+        }
+
+        const car = new Car('H121S', 'Honda', 4)
+        car.info();
+
+        console.log('-------------------------------')
+        // -----------------------------------------
+
+
+        // Polymorphism
+        class Transportasi {
+            constructor(name) {
+                this.name = name;
+            }
+            jalur() {
+                console.log(`${this.name} pergi dengan transportasi darat`);
+            }
+        }
+
+        class Persons extends Transportasi {
+            constructor(name) {
+                super(name);
+            }
+
+            // jalur() {
+            //     console.log(`${this.name} pergi dengan transportasi udara`);
+            // }
+        }
+
+        const seiya = new Persons('Seiya');
+        seiya.jalur()
+
+    </script>
+</body>
+
+</html>

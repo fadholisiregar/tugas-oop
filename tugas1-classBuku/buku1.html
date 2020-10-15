@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Membuat Class Buku 1</title>
+</head>
+
+<body>
+    <h2>Data Buku:</h2>
+    <p id="hasil"></p>
+
+    <script>
+        class Buku {
+            constructor(id, judul, pengarang) {
+                this.idBuku = id;
+                this.judulBuku = judul;
+                this.pengarangBuku = pengarang;
+            }
+
+            getId() {
+                return this.idBuku;
+            }
+            getJudul() {
+                return this.judulBuku;
+            }
+            getPengarang() {
+                return this.pengarangBuku;
+            }
+            tampil() {
+                let dataBuku =
+                    'id: ' + this.getId() + '<br>' +
+                    'Judul: ' + this.getJudul() + '<br>' +
+                    'Pengarang: ' + this.getPengarang();
+                return dataBuku
+            }
+        }
+
+        let objBuku1 = new Buku('1', 'Harry Potter', 'J K Rowling');
+        let objBuku2 = new Buku('2', 'Laskar Pelangi', 'Andrea Hirata');
+
+        const hasil = document.getElementById('hasil');
+        hasil.innerHTML = objBuku1.tampil() + '<hr>' + objBuku2.tampil()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Membuat Class Buku 2</title>
+</head>
+
+<body>
+    <p id="hasil"></p>
+
+    <script>
+        class Buku {
+            constructor(judul) {
+                this.judulBuku = judul;
+            }
+            tampil() {
+                return 'Buku ' + this.judulBuku + ' ditulis oleh '
+            }
+        }
+
+        class DetailBuku extends Buku {
+            constructor(pengarang, judul) {
+                super(judul)
+                this.pengarangBuku = pengarang
+            }
+            show() {
+                return this.tampil() + this.pengarangBuku
+            }
+        }
+
+        let buku1 = new DetailBuku('Harry Potter', 'J K Rowling')
+        let buku2 = new DetailBuku('Laskar Pelangi', 'Andrea Hirata')
+
+        const hasil = document.getElementById('hasil');
+        hasil.innerHTML = buku1.show() + '<hr>' + buku2.show()
+    </script>
+</body>
+
+</html>
